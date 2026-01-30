@@ -63,7 +63,7 @@ function render(page) {
     const source = `./pages/${page}.mjs`;
     import(source)
         .then((module) => module.default.render())
-        .catch(() => goToNotFound());
+        .catch((err) => {console.error(err); goToNotFound()});
 }
 
 function navigate() {
