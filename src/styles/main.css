@@ -1,0 +1,160 @@
+:root {
+    --code-background-color: rgb(85, 85, 85, 0.25);
+    --heading-border-color: #8A5CF5;
+    --body-background-color: #1E1E1E;
+    --link-color: #A587EE;
+    --text-color: #DADADA;
+    --font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 420px) {
+    :root {
+        --font-size: 1rem;
+    }
+}
+
+@keyframes wave {
+    50% { transform:rotate(30deg); }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+#greetings-container {
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+}
+
+#greetings-container img {
+    height: calc(var(--font-size) * 2.3);
+    animation: wave 1.3s infinite;
+}
+
+#greetings-container h1 {
+    line-height: calc(var(--font-size) * 2.5);
+}
+
+#links-container span {
+    white-space: nowrap;
+}
+
+/* hide multiline line number */
+.katex .tag {
+    display: none;
+}
+
+.note-navbar {
+    justify-content: space-between;
+    display: flex;
+}
+
+.fork-icon {
+    transform: rotate(180deg);
+    display: inline-block;
+    color: #828282;
+}
+
+.footnotes ol {
+    font-size: calc(var(--font-size) - 3px);
+}
+
+body {
+    background-color: var(--body-background-color);
+    line-height: calc(var(--font-size) * 2);
+    font-family: "Helvetica", sans-serif;
+    font-size: var(--font-size);
+    color: var(--text-color);
+    max-width: 1000px;
+    padding: 35px;
+    margin: auto;
+}
+
+body[data-theme=dark] {
+    --body-background-color: #1E1E1E;
+    --text-color: #DADADA;
+}
+
+body[data-theme=light] {
+    --body-background-color: #DADADA;
+    --text-color: #1E1E1E;
+    --link-color: #64B;
+}
+
+ul {
+    margin-left: 15px;
+}
+
+ol {
+    margin-left: 20px;
+}
+
+h2 {
+    border-left: var(--heading-border-color) 5px solid;
+    padding-left: 10px;
+}
+
+hr {
+    border: 1.5px solid #444;
+}
+
+a {
+    color: var(--link-color);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+blockquote {
+    border-left: var(--heading-border-color) 5px solid;
+    padding-left: 20px;
+}
+
+blockquote[data-type] {
+    --color: 100, 100, 100;
+    padding: 10px 20px 20px 20px;
+    border-color: rgba(var(--color), 0.25);
+    background-color: rgba(var(--color), 0.1);
+}
+
+blockquote[data-type=info] {
+    --icon: 'info-circle';
+    --color: 2, 122, 255;
+}
+
+blockquote[data-type=example] {
+    --icon: 'list';
+    --color: 168, 130, 255;
+}
+
+pre {
+    background-color: var(--code-background-color);
+    line-height: calc(var(--font-size) * 1.5);
+    white-space: pre;
+    overflow: scroll;
+    padding: 15px;
+}
+
+code:not(pre code) {
+    background-color: var(--code-background-color);
+    padding: 2px 5px;
+}
+
+h1, h2, h3, h4, h5, h6, blockquote, hr, pre {
+    margin: 20px 0px;
+}
+
+blockquote[data-type], code:not(pre code), pre {
+    border-radius: 4px;
+}
